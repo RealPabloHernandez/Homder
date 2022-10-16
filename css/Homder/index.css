@@ -1,0 +1,23 @@
+@import url("normalize.css");
+@import url("fonts.css");
+@import url("colors.css");
+
+/*Atoms*/
+@import url("00_atoms/btn.css");
+
+/*Partials*/
+@import url("02_organisms/header.css");
+
+/*Base*/
+*{
+    box-sizing: border-box;
+}
+html{
+    min-height: 100vh;
+    min-width: 375px;
+}
+
+body{
+    min-height: 100vh;
+}
+

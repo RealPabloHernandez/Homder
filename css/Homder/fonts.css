@@ -1,0 +1,10 @@
+/*Inter: font-family: 'Inter', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/*Roboto: font-family: 'Roboto', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+
+/*Base font-family*/
+*{
+    font-family: 'Roboto', sans-serif;
+}
