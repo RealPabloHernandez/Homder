@@ -1,0 +1,6 @@
+@import url("../00_atoms/logo.css");
+
+.header__logo{
+    max-width: clamp(10rem, 60%, 220px);
+    cursor: pointer;
+}

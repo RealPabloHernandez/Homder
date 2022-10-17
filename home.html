@@ -7,23 +7,49 @@
     <meta name="description" content="Encuentra o publica fácil y rápido apartamentos disponibles en tu lugar de preferencia.">
     <title>Homder - Inicio</title>
 
-    <link rel="stylesheet" href="css/Homder/03_pages/home.css">
+    <link rel="stylesheet" href="css//03_pages/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
     <header class="header">
         <div class="header__logo">
-            <img alt="Homder Logo">
+            <img alt="Homder Logo" class="logo">
         </div>
         <div class="header__options">
             <div class="header__principal">
-                <input type="button" class="button button--green" value="Publica">
-                <img alt="Foto de perfil" class="header__profile">
+                <input type="button" class="header__button button button--green" arialabel="Crear publicación" value="Publica">
+                <div class="header__profile header__profile--session-off">
+                    <a class="link" id="access-ref" href="#">Acceder</a>
+                    <!-- <img alt="Foto de perfil" class="profile-picture"> -->
+                </div>
             </div>
         </div>
+
+        <dialog id="access-modal" >
+            <span id="close-modal"></span>
+            <div class="access-modal__logo">
+                <img alt="Homder Logo" class="logo">
+            </div>
+
+            <form action="" id="access-modal__form">
+                <input type="email" class="text-input" name="email" autocomplete="username" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+                <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y al menos 8 carácteres." required>
+                <input type="submit" value="Iniciar sesión" class="button button--green button--bigger">
+            </form>
+
+            <div class="access-modal__extra">
+                <p>¿No estás registrado?</p>
+                <a class="link" href="#">Registrate aquí</a>
+            </div>
+        </dialog>
     </header>
 
-    <main class="main"></main>
+    <main class="main">
+        
+    </main>
 
     <footer class="footer"></footer>
+
+    <script src="scripts/javascript/access.js"></script>
 </body>
 </html>

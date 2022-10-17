@@ -1,0 +1,15 @@
+.header__principal{
+    display: grid;
+    grid-template-areas: "profile button";
+    gap: 1rem;
+    align-items: center;
+}
+
+@media screen and (min-width:700px){
+    .header__principal{
+        grid-template-areas: "button profile";
+    }
+    .header__profile{
+        max-width: 3.2rem;
+    }
+}

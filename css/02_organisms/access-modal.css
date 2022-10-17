@@ -1,0 +1,24 @@
+@import url("../00_atoms/close-modal.css");
+@import url("../00_atoms/text-input.css");
+@import url("../01_molecules/access-modal__form.css");
+@import url("../01_molecules/access-modal__logo.css");
+#access-modal{
+    align-items: center;
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    text-align: center;
+}
+
+#access-modal::backdrop{
+    backdrop-filter: blur(2px);
+}
+
+@media screen and (min-width:580px){
+    #access-modal{
+        max-width: 400px;
+        max-height: 500px;
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,36 @@
+.link{
+    position: relative;
+    text-decoration: none;
+    color: var(--clr-green);
+}
+
+.link:hover{
+    color: var(--clr-green-darker);
+}
+
+.link:after{
+    position: absolute;
+    right: 50%;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: var(--clr-green);
+    transition: all .2s ease-in-out;
+    
+}
+
+.link:hover:after{
+    width: 100%;
+    transform: translateX(50%);
+}
+
+@keyframes move{
+    from{
+        right: 50%;
+    }
+
+    to{
+        right: 0;
+    }
+}

@@ -1,0 +1,16 @@
+.header__profile{
+    display: flex;
+    overflow: hidden;
+    max-width: 2.5rem;
+    min-width: 2.5rem;
+    border-radius: 50%;
+    grid-area: profile;
+    cursor: pointer;
+}
+
+.header__profile--session-off{
+    border-radius: 0;
+    max-width: 100%;
+    min-width: fit-content;
+    overflow:visible;
+}

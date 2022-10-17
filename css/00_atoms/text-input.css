@@ -1,0 +1,9 @@
+.text-input{
+    border-radius: 10px;
+    border: solid var(--clr-dark) .15rem;
+    height: 2.5rem;
+    outline-color: var(--clr-green);
+    outline-offset: .25rem;
+    padding: .3rem;
+    text-align: center;
+}
