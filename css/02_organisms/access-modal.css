@@ -5,10 +5,10 @@
 #access-modal{
     align-items: center;
     border: none;
-    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
     padding: 10%;
     text-align: center;
-    width: 100%;
 }
 
 #access-modal::backdrop{
@@ -19,6 +19,8 @@
     #access-modal{
         max-height: 500px;
         max-width: 400px;
+        min-height: 400px;
+        min-width: 500px;
         padding: 2rem;
     }
 }
