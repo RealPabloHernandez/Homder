@@ -1,8 +1,8 @@
 .header__principal{
-    display: grid;
-    grid-template-areas: "profile button";
-    gap: 1rem;
     align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas: "profile button";
 }
 
 @media screen and (min-width:700px){

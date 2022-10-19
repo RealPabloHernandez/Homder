@@ -1,9 +1,9 @@
-@import url("normalize.css");
-@import url("fonts.css");
 @import url("colors.css");
+@import url("fonts.css");
+@import url("normalize.css");
 
 /*Atoms*/
-@import url("00_atoms/btn.css");
+@import url("00_atoms/button-input.css");
 
 /*Partials*/
 @import url("02_organisms/header.css");

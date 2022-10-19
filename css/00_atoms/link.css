@@ -9,20 +9,23 @@
 }
 
 .link:after{
+    background-color: var(--clr-green);
+    content: "";
+    display: block;
+    height: 2px;
     position: absolute;
     right: 50%;
-    display: block;
-    content: "";
-    height: 2px;
-    width: 0%;
-    background-color: var(--clr-green);
     transition: all .2s ease-in-out;
-    
+    width: 0%;
 }
 
-.link:hover:after{
-    width: 100%;
+.link:hover:after, .link:focus:after{
     transform: translateX(50%);
+    width: 100%;
+}
+
+.link:focus{
+    outline:  0;    
 }
 
 @keyframes move{

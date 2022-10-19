@@ -1,20 +1,19 @@
 #close-modal{
-    position: relative;
     cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 1rem;
     height: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 1rem;
 }
 
 #close-modal::after,
 #close-modal::before{
+    background: #333;
     content: '';
     display: block;
-    background: #333;
-    position: absolute;
     height: 1rem;
+    position: absolute;
     width: 2px;
 }
 

@@ -6,9 +6,9 @@
     align-items: center;
     border: none;
     height: 100%;
-    width: 100%;
     padding: 10%;
     text-align: center;
+    width: 100%;
 }
 
 #access-modal::backdrop{
@@ -17,8 +17,8 @@
 
 @media screen and (min-width:580px){
     #access-modal{
-        max-width: 400px;
         max-height: 500px;
+        max-width: 400px;
         padding: 2rem;
     }
 }

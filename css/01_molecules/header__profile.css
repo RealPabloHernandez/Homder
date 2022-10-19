@@ -1,11 +1,11 @@
 .header__profile{
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
-    overflow: hidden;
+    grid-area: profile;
     max-width: 2.5rem;
     min-width: 2.5rem;
-    border-radius: 50%;
-    grid-area: profile;
-    cursor: pointer;
+    overflow: hidden;
 }
 
 .header__profile--session-off{

@@ -1,4 +1,4 @@
 .access-modal__logo{
-    max-width: clamp(16rem, 60%, 270px);
     margin: 2rem auto;
+    max-width: clamp(16rem, 60%, 270px);
 }
