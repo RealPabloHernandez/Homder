@@ -19,8 +19,18 @@
     #access-modal{
         max-height: 500px;
         max-width: 400px;
-        min-height: 400px;
+        min-height: auto;
         min-width: 500px;
         padding: 2rem;
+        overflow-y: visible;
+    }
+}
+
+@media screen and (max-height:450px){
+    #access-modal{
+        position: absolute;
+        margin: 0 auto;
+        min-height: 450px;
+        
     }
 }
