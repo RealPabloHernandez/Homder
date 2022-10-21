@@ -1,1 +1,4 @@
 @import url("../index.css");
+@import url("../01_molecules/search.css");
+@import url("../02_organisms/content.css");
+@import url("../02_organisms/cards.css");

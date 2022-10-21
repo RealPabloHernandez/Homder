@@ -4,7 +4,7 @@
     color: white;
     cursor: pointer;
     font-weight: 500;
-    height: 1.8rem;
+    min-height: 1.8rem;
     outline-color: var(--clr-green);
     outline-offset: .25rem;
     padding: 0 1rem;
@@ -21,6 +21,14 @@
 
 .button--green:hover{
     background-color: var(--clr-green-darker);
+}
+
+.button--darkgray{
+    background-color: var(--clr-dark);
+}
+
+.button--semiradius{
+    border-radius: .6rem;
 }
 
 @media screen and (min-width:700px){

@@ -8,7 +8,10 @@
     <title>Homder - Inicio</title>
 
     <link rel="stylesheet" href="css//03_pages/home.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
+    <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
 </head>
 <body>
     <header class="header">
@@ -24,14 +27,26 @@
                 </div>
             </div>
         </div>
+
+        <script src="scripts/javascript/access.js"></script>
     </header>
 
-    <main class="main">
+    <main>
+        <form action="" class="search">
+            <input type="text" class="text-input text-input--shadow" name="search" placeholder="¿Qué buscas hoy?" aria-label="Busqueda">
+            <input type="submit" class="button button--darkgray button--semiradius button--bigger" value="Buscar" required>
+        </form>
+
+        <div class="content">
+            <section class="cards">
+                <h2 class="cards__title">Cerca de ti</h2>
+                <div class="card"></div>
+                <div class="card"></div>
+            </section>
+        </div>
         
     </main>
 
     <footer class="footer"></footer>
-
-    <script src="scripts/javascript/access.js"></script>
 </body>
 </html>

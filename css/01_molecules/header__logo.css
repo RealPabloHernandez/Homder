@@ -2,5 +2,5 @@
 
 .header__logo{
     cursor: pointer;
-    max-width: clamp(10rem, 60%, 220px);
+    width: clamp(10rem, 60%, 220px)
 }
