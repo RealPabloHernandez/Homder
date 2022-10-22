@@ -33,14 +33,55 @@
 
     <main>
         <form action="" class="search">
-            <input type="text" class="text-input text-input--shadow" name="search" placeholder="¿Qué buscas hoy?" aria-label="Busqueda">
-            <input type="submit" class="button button--darkgray button--semiradius button--bigger" value="Buscar" required>
+            <input type="text" class="text-input text-input--shadow" name="search" placeholder="¿Qué buscas hoy?" aria-label="Busqueda" autocomplete="off" required>
+            <input type="submit" class="button button--darkgray button--semiradius button--bigger" value="Buscar">
         </form>
 
         <div class="content">
             <section class="cards">
                 <h2 class="cards__title">Cerca de ti</h2>
-                <div class="card"></div>
+                <div class="card">
+                    <div class="card__options">
+                        <img alt="User" class="card__user">
+                        <img alt="Guardar" class="card__save">
+                    </div>
+
+                    <div class="card__info">
+                        <div class="card__content">
+                            <img alt="Foto" class="card__preview" loading="lazy">
+
+                            <div class="card__text">
+                                <h2 class="card__title">Apartamento de dos alcobas en El Socorro</h2>
+                                <div class="card__location"> Cartagena, Colombia</div>
+                                <div class="card__description">
+                                    Apartamento de dos alcobas, ubicado en el barrio El Socorro, frente a la tienda Donde Juancho.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card__properties">
+                            <h3 class="card__price">$380,000</h3>
+                            <div class="card__features">
+                                <div class="card__bedrooms card__feature">
+                                    3
+                                </div>
+
+                                <div class="card__bathrooms card__feature">
+                                    2
+                                </div>
+
+                                <div class="card__area-inside card__feature">
+                                    360m²
+                                </div>
+
+                                <div class="card__area-outside card__feature">
+                                    512m²
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card"></div>
             </section>
         </div>

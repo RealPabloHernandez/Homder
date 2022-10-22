@@ -1,8 +1,156 @@
 .card{
-    width: 100%;
-    background-color:white;
     align-self: center;
+    background-color:white;
     border-radius: 10px;
     box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
     min-height: 200px;
+    padding: 10px 50px 10px 10px;
+    position: relative;
+    width: 100%;
+}
+
+.card__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__options{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+}
+
+.card__content{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.card__preview{
+    border-radius: 10q;
+    content: url("/img/temp/apartamento.jpg");
+    object-fit: cover;
+    width: max(120px, 30%);
+}
+
+.card__user,.card__save{
+    cursor: pointer;
+}
+
+.card__user{
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    content: url("/img/temp/michael.jpg");
+    max-width: 100%;
+}
+
+.card__save{
+    content: url("/img/icons/bookmark-regular.svg");
+    max-width: 50%;
+}
+
+.card__properties{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__title{
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.card__location{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: .7rem;
+    font-weight: bold;
+    gap: 5px;
+    margin: 5px 0 0 0;
+}
+
+.card__location::before{
+    aspect-ratio: 1/1;
+    content: url("/img/icons/location-dot-solid.svg");   
+    height: .6rem;
+}
+
+.card__description{
+    font-size: .8rem;
+    margin: 15px 0;
+    text-justify: distribute;    
+}
+
+.card__price{
+    font-size: 1.25rem;
+    margin: 5px 0 0 0;
+    min-width: max(120px, 30%);
+    text-align: center;
+}
+
+.card__features{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .8rem;  
+    gap: 10px;  
+    justify-content:space-around;
+    width: max(150px, 30%);
+}
+
+.card__feature{
+    display: flex;
+    margin:0 5px;
+}
+
+.card__feature::before{
+    aspect-ratio: 1/1;
+    height: .8rem;
+    left: 0;
+    margin-right: 5px;
+
+}
+
+.card__bedrooms::before{
+    content: url("/img/icons/bed-solid.svg");
+}
+
+.card__bathrooms::before{
+    content: url("/img/icons/bath-solid.svg");
+}
+.card__area-inside::before{
+    content: url("/img/icons/minimize-solid.svg");
+}
+.card__area-outside::before{
+    content: url("/img/icons/maximize-solid.svg");
+} 
+
+
+@media screen and (min-width:700px) {
+    .card__title{
+        font-size: 1.5rem;
+    }
+    .card__description{
+        font-size: .9rem;
+    }
+
+    .card__price{
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (min-width:850px) {
+    .card__properties{
+        width: 70%;
+        align-self: flex-end;
+    }
+    
+    .card__features{
+        width: auto;
+    }
 }

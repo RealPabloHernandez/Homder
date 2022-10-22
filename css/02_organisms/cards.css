@@ -8,9 +8,16 @@
 }
 
 .cards__title{
+   display: flex;
    font-size: 1.2rem;
 }
 
+.cards__title::before{
+   content: url("/img/icons/map-location-solid.svg");
+   aspect-ratio: 1/1;
+   width: 1.2rem;
+   margin: 0 1ch;
+}
 
 @media screen and (min-width:700px) {
    .cards{
