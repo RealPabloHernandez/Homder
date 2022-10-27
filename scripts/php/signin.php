@@ -21,7 +21,7 @@
                 $err_login=false;
             }
         }
-        
-        header('location: ../../');
+
+        header('location: http://localhost/homder');
     }
 ?>
