@@ -1,5 +1,5 @@
 # Homder-Base de datos
-Base de datos del sistema.
+Ejecute el código en su consola SQL para la creación de la base de datos.
 -------------------------------------------------------------------
 ```MySql
     create database Homder;
