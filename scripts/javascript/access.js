@@ -1,14 +1,13 @@
 const access_ref=document.getElementById("access-ref");
 const header = document.querySelector(".header");
 
-access_ref.addEventListener("click", ()=>{initAccess_modal();});
+if(access_ref){access_ref.addEventListener("click", ()=>{initAccess_modal()})}
 
-function initAccess_modal(){
-    let reff = "login_ref";
-    run_modal(reff);
+function initAccess_modal(reff="login_ref", message=""){
+    run_modal(reff, message);
 }
 
-function run_modal(reff){
+function run_modal(reff, message=""){
     let modal;
     let nextReff;
 
@@ -20,6 +19,13 @@ function run_modal(reff){
     else{
         modal=getSigninModal();
         nextReff="login_ref";
+    }
+
+    if(message!=""){
+        let messageElement = document.createElement("a");
+        messageElement.className="access-modal__message";
+        messageElement.innerText=message;
+        modal.appendChild(messageElement);
     }
 
     header.appendChild(modal);
@@ -50,43 +56,71 @@ function getLoginModal(){
             <img alt="Homder Logo" class="logo">
         </div>
 
-        <form action="" id="access-modal__form">
+        <form id="access-modal__form" method="post">
             <input type="email" class="text-input" name="email" autocomplete="username" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-            <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y al menos 8 carácteres." required>
-            <input type="submit" value="Iniciar sesión" class="button button--green button--bigger">
+            <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y de 8 a 16 carácteres." required>
+            <input type="submit" value="Iniciar sesión" name="login" class="button button--green button--bigger">
         </form>
 
         <div class="access-modal__extra">
             <p>¿No estás registrado?</p>
-            <a class="link access-modal-reff" id ="signin_ref" href="#">Registrate aquí</a>
+            <a class="link access-modal-reff" id ="signin_ref">Registrate aquí</a>
         </div>
     `;
 
+    trimInput(modal.querySelectorAll('[name="email"]')[0]);
     return modal;
 }
 
 function getSigninModal(){
     let modal = document.createElement("dialog");
     modal.setAttribute("id", "access-modal");
-
+    // action="scripts/php/signin.php"
     modal.innerHTML=`
         <span id="close-modal"></span>
         <div class="access-modal__logo">
             <img alt="Homder Logo" class="logo">
         </div>
 
-        <form action="" id="access-modal__form">
-            <input type="email" class="text-input" name="email" autocomplete="username" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-            <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y al menos 8 carácteres." required>
-            <input type="password" class="text-input" name="confirm-password" autocomplete="confirm-password" placeholder="Confirma tu contraseña" aria-label="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y al menos 8 carácteres." required>
-            <input type="submit" value="Iniciar sesión" class="button button--green button--bigger">
+        <form id="access-modal__form"  method="post">
+            <input type="text" class="text-input" name="name" autocomplete="name" placeholder="Nombre" aria-label="Nombre" required>
+            <input type="email" class="text-input" name="email" autocomplete="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+            <input type="password" class="text-input" name="password" autocomplete="new-password" placeholder="Contraseña" aria-label="Contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y de 8 a 16 carácteres." required>
+            <input type="password" class="text-input" name="confirm-password" autocomplete="new-password" placeholder="Confirma tu contraseña" aria-label="Contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y de 8 a 16 carácteres." required>
+            <input type="submit" value="Registrarse" name="signin" class="button button--green button--bigger">
         </form>
 
         <div class="access-modal__extra">
             <p>¿Ya tienes cuenta?</p>
-            <a class="link access-modal-reff" id ="login_ref" href="#">Inicia sesión</a>
+            <a class="link access-modal-reff" id ="login_ref">Inicia sesión</a>
         </div>
     `;
 
+
+    trimInput(modal.querySelectorAll('[name="email"]')[0]);
+    trimInput(modal.querySelectorAll('[name="name"]')[0]);
+
+    let passwords=modal.querySelectorAll('[name="password"]');
+    let confirms=modal.querySelectorAll('[name="confirm-password"]');
+    confirms[0].addEventListener("change", ()=>{confirmPassword(passwords[0], confirms[0])});
+
     return modal;
+}
+
+function confirmPassword(password, confirm){
+    if(password.value!=confirm.value){
+        confirm.setCustomValidity("Las contraseñas no coinciden");
+        return;
+    }
+
+    confirm.setCustomValidity("");
+}
+
+function trimInput(el){
+    el.addEventListener("change", ()=>{takeTrim(el)});
+    el.addEventListener("focusout", ()=>{takeTrim(el)});
+
+    function takeTrim(x){
+        x.value=x.value.trim();
+    }
 }

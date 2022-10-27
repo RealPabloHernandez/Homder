@@ -9,20 +9,36 @@
     min-width: 100%;
     padding: 10%;
     text-align: center;
+    display: grid;
+    grid-template-areas: "logo" "form" "message" "extra";
+}
+
+#access-modal:not([open]){
+    display: none;
+}
+
+.access-modal__extra{
+    grid-area: extra;
+}
+
+.access-modal__message{
+    color: red;
+    font-size: small;
 }
 
 #access-modal::backdrop{
     backdrop-filter: blur(2px);
+    pointer-events: none;
 }
 
 @media screen and (min-width:580px){
     #access-modal{
-        max-height: 500px;
+        max-height: 550px;
         max-width: 400px;
         min-height: auto;
         min-width: 500px;
         padding: 2rem;
-        overflow-y: visible;
+        overflow-y: auto;
     }
 }
 
@@ -30,7 +46,6 @@
     #access-modal{
         position: absolute;
         margin: 0 auto;
-        min-height: 450px;
-        
+        min-height: 450px;  
     }
 }

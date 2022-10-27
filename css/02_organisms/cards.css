@@ -13,7 +13,7 @@
 }
 
 .cards__title::before{
-   content: url("/img/icons/map-location-solid.svg");
+   content: url("http://localhost/homder/img/icons/map-location-solid.svg");
    aspect-ratio: 1/1;
    width: 1.2rem;
    margin: 0 1ch;

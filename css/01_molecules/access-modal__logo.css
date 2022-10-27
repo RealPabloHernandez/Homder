@@ -1,4 +1,5 @@
 .access-modal__logo{
     margin: 2rem auto;
     max-width: clamp(16rem, 60%, 270px);
+    grid-area: logo;
 }

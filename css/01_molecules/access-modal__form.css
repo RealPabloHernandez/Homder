@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: .5rem;
     min-width: 100%;
+    grid-area: form;
 }
 
 #access-modal__form input:last-of-type{

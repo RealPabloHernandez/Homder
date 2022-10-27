@@ -4,14 +4,16 @@
     border-radius: 10px;
     box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
     min-height: 200px;
-    padding: 10px 50px 10px 10px;
+    padding: 10px;
     position: relative;
     width: 100%;
+    cursor: pointer;
 }
 
 .card__info{
     display: flex;
     flex-direction: column;
+    padding-right: 40px;
 }
 
 .card__options{
@@ -33,7 +35,7 @@
 
 .card__preview{
     border-radius: 10q;
-    content: url("/img/temp/apartamento.jpg");
+    content: url("http://localhost/homder/img/temp/apartamento.jpg");
     object-fit: cover;
     width: max(120px, 30%);
 }
@@ -45,13 +47,17 @@
 .card__user{
     aspect-ratio: 1/1;
     border-radius: 50%;
-    content: url("/img/temp/michael.jpg");
+    content: url("http://localhost/homder/img/temp/michael.jpg");
     max-width: 100%;
 }
 
 .card__save{
-    content: url("/img/icons/bookmark-regular.svg");
+    content: url("http://localhost/homder/img/icons/bookmark-regular.svg");
     max-width: 50%;
+}
+
+.card__saved{
+    content: url("http://localhost/homder/img/icons/bookmark-solid.svg");
 }
 
 .card__properties{
@@ -77,14 +83,17 @@
 
 .card__location::before{
     aspect-ratio: 1/1;
-    content: url("/img/icons/location-dot-solid.svg");   
+    content: url("http://localhost/homder/img/icons/location-dot-solid.svg");   
     height: .6rem;
 }
 
 .card__description{
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-inline-box;
     font-size: .8rem;
     margin: 15px 0;
-    text-justify: distribute;    
+    overflow: hidden;
 }
 
 .card__price{
@@ -117,17 +126,17 @@
 }
 
 .card__bedrooms::before{
-    content: url("/img/icons/bed-solid.svg");
+    content: url("http://localhost/homder/img/icons/bed-solid.svg");
 }
 
 .card__bathrooms::before{
-    content: url("/img/icons/bath-solid.svg");
+    content: url("http://localhost/homder/img/icons/bath-solid.svg");
 }
 .card__area-inside::before{
-    content: url("/img/icons/minimize-solid.svg");
+    content: url("http://localhost/homder/img/icons/minimize-solid.svg");
 }
 .card__area-outside::before{
-    content: url("/img/icons/maximize-solid.svg");
+    content: url("http://localhost/homder/img/icons/maximize-solid.svg");
 } 
 
 
@@ -146,7 +155,7 @@
 
 @media screen and (min-width:850px) {
     .card__properties{
-        width: 70%;
+        width: 100%;
         align-self: flex-end;
     }
     

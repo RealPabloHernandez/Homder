@@ -1,3 +1,19 @@
+<?php
+    $err_login=false;
+    $message="";
+    session_start();
+
+    $inSession=false;
+
+    if(isset($_SESSION['id'])){
+        echo '<script>console.log("Logged");</script>';
+        $inSession=true;
+    }
+    
+    include 'scripts/php/login.php';
+    include 'scripts/php/signin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,14 +37,34 @@
         <div class="header__options">
             <div class="header__principal">
                 <input type="button" class="header__button button button--green" arialabel="Crear publicación" value="Publica">
-                <div class="header__profile header__profile--session-off">
-                    <a class="link" id="access-ref" href="#">Acceder</a>
-                    <!-- <img alt="Foto de perfil" class="profile-picture"> -->
-                </div>
+                <?php if($inSession){?>
+                    <div class="header__profile">
+                        <img alt="Foto de perfil" class="profile-picture">
+                    </div>
+                <?php }?>
+                
+                <?php if(!$inSession){?>
+                    <div class="header__profile header__profile--session-off">
+                        <a class="link" id="access-ref">Acceder</a>
+                    </div>
+                <?php }?>
+                
             </div>
         </div>
 
         <script src="scripts/javascript/access.js"></script>
+        <?php
+            if($message != ""){
+                if($err_login){$access_reff="login_ref";}
+                else{
+                    $access_reff="signin_ref";
+                }
+        ?>
+                <script>initAccess_modal(<?php echo ("'$access_reff' , '$message'")?>)</script>
+        <?php 
+                $message="";
+            }
+        ?>
     </header>
 
     <main>
@@ -43,9 +79,8 @@
                 <div class="card">
                     <div class="card__options">
                         <img alt="User" class="card__user">
-                        <img alt="Guardar" class="card__save">
+                        <img alt="Guardar" class="card__save card__saved">
                     </div>
-
                     <div class="card__info">
                         <div class="card__content">
                             <img alt="Foto" class="card__preview" loading="lazy">
@@ -54,7 +89,8 @@
                                 <h2 class="card__title">Apartamento de dos alcobas en El Socorro</h2>
                                 <div class="card__location"> Cartagena, Colombia</div>
                                 <div class="card__description">
-                                    Apartamento de dos alcobas, ubicado en el barrio El Socorro, frente a la tienda Donde Juancho.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad harum eveniet nemo facere quas quos laboriosam doloribus libero dolorum expedita ab optio, enim, accusantium, minima laborum soluta earum modi?
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cupiditate nesciunt doloremque nobis quam repellat sunt quae non impedit, aut cumque dolor quaerat fugiat sequi possimus magni architecto tempora eum?
                                 </div>
                             </div>
                         </div>
@@ -82,12 +118,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="card"></div>
+                
             </section>
         </div>
         
     </main>
 
     <footer class="footer"></footer>
+
+    <script src="scripts/javascript/cards.js"></script>
 </body>
 </html>
