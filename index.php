@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="es">
+
 <?php
     $err_login=false;
     $message="";
@@ -14,8 +17,6 @@
     include 'scripts/php/signin.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,19 +32,19 @@
 </head>
 <body>
     <header class="header">
-        <a href="http://localhost/homder/" class="header__logo" tabindex="1">
+        <a href="http://localhost/homder/" class="header__logo">
             <img alt="Homder Logo" class="logo">
         </a>
         <div class="header__options">
             <div class="header__principal">
-                <a href="" class="header__button button button--green" tabindex="2">Publica</a>
+                <a href="#" class="header__button button button--green">Publica</a>
                 <?php if($inSession){?>
                     <div class="header__profile__container">
                         <div class="header__profile">
                             <img alt="Foto de perfil" class="profile-picture">
                         </div>
 
-                        <button class="header__menubtn button button--darkgray button--small button--semiradius" tabindex="3">
+                        <button class="header__menubtn button button--darkgray button--small button--semiradius" aria-label="Abrir menú">
                             <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
                         </a>
                     </div>
@@ -63,8 +64,8 @@
         ?>
             <div class="menu menu--hidden">
                 <div class="menu__list">
-                    <a href="" class="menu-item link link--white link--wordspace link--noafter" tabindex="4"><img class="menu-icon profile" alt="Icon"> Ver perfil</a>
-                    <a href="scripts\php\logout.php" class="menu-item link link--white link--wordspace link--noafter" tabindex="5"><img class="menu-icon logout" alt="icon">Cerrar sesión</a>
+                    <a href="#" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon profile" alt="Icon"> Ver perfil</a>
+                    <a href="scripts\php\logout.php" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon logout" alt="icon">Cerrar sesión</a>
                 </div>
             </div>
         <?php
