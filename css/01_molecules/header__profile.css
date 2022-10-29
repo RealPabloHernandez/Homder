@@ -8,6 +8,25 @@
     overflow: hidden;
 }
 
+.header__profile__container{
+    position: relative;
+}
+
+
+.header__menubtn{
+    background-color: var(--clr-dark);
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(25%);
+}
+
+.header__menubtn img{
+    height: .8rem;
+}
+
 .header__profile--session-off{
     border-radius: 0;
     max-width: 100%;

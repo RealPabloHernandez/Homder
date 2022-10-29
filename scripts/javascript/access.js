@@ -1,5 +1,24 @@
 const access_ref=document.getElementById("access-ref");
 const header = document.querySelector(".header");
+const menuToggler = document.querySelector(".header__profile__container");
+const menu = document.querySelector(".menu");
+
+if(menuToggler){
+    menuToggler.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        if(menu){
+            menu.classList.toggle("menu--hidden");
+        }
+    })
+
+    document.body.addEventListener("click", ()=>{
+        if(menu){
+            if(!menu.classList.contains("menu--hidden")){
+                menu.classList.toggle("menu--hidden");
+            }
+        }
+    });
+}
 
 if(access_ref){access_ref.addEventListener("click", ()=>{initAccess_modal()})}
 
@@ -58,7 +77,7 @@ function getLoginModal(){
 
         <form id="access-modal__form" method="post">
             <input type="email" class="text-input" name="email" autocomplete="username" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-            <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Debe contener al menos un número, una létra mayúscula, una minúscula, y de 8 a 16 carácteres." required>
+            <input type="password" class="text-input" name="password" autocomplete="current-password" placeholder="Contraseña" aria-label="Contraseña" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" title="Contraseña no válida" required>
             <input type="submit" value="Iniciar sesión" name="login" class="button button--green button--bigger">
         </form>
 

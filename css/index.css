@@ -7,6 +7,7 @@
 
 /*Partials*/
 @import url("02_organisms/header.css");
+@import url("02_organisms/footer.css");
 
 /*Base*/
 *{

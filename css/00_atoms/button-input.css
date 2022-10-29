@@ -15,11 +15,17 @@
     height: 2.5rem;
 }
 
+.button--small{
+    height: max-content;
+    padding: 2px;
+    min-height: 0;
+}
+
 .button--green{
     background-color: var(--clr-green);
 }
 
-.button--green:hover{
+.button--green:hover, .button--green:focus{
     background-color: var(--clr-green-darker);
 }
 

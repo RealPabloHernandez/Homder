@@ -3,6 +3,7 @@
     text-decoration: none;
     color: var(--clr-green);
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .link:hover{
@@ -27,6 +28,22 @@
 
 .link:focus{
     outline:  0;    
+}
+
+.link--white, .link--white:hover{
+    color:white;
+}
+
+.link--white::after{
+    background-color: white;
+}
+
+.link--wordspace:hover, .link--wordspace:focus{
+    letter-spacing: .1ch;
+}
+
+.link--noafter::after{
+    content: none;
 }
 
 @keyframes move{

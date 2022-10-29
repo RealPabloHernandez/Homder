@@ -31,15 +31,21 @@
 </head>
 <body>
     <header class="header">
-        <div class="header__logo">
+        <a href="http://localhost/homder/" class="header__logo" tabindex="1">
             <img alt="Homder Logo" class="logo">
-        </div>
+        </a>
         <div class="header__options">
             <div class="header__principal">
-                <input type="button" class="header__button button button--green" arialabel="Crear publicación" value="Publica">
+                <a href="" class="header__button button button--green" tabindex="2">Publica</a>
                 <?php if($inSession){?>
-                    <div class="header__profile">
-                        <img alt="Foto de perfil" class="profile-picture">
+                    <div class="header__profile__container">
+                        <div class="header__profile">
+                            <img alt="Foto de perfil" class="profile-picture">
+                        </div>
+
+                        <button class="header__menubtn button button--darkgray button--small button--semiradius" tabindex="3">
+                            <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
+                        </a>
                     </div>
                 <?php }?>
                 
@@ -51,6 +57,20 @@
                 
             </div>
         </div>
+
+        <?php
+        if($inSession){
+        ?>
+            <div class="menu menu--hidden">
+                <div class="menu__list">
+                    <a href="" class="menu-item link link--white link--wordspace link--noafter" tabindex="4"><img class="menu-icon profile" alt="Icon"> Ver perfil</a>
+                    <a href="scripts\php\logout.php" class="menu-item link link--white link--wordspace link--noafter" tabindex="5"><img class="menu-icon logout" alt="icon">Cerrar sesión</a>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+        
 
         <script src="scripts/javascript/access.js"></script>
         <?php
@@ -123,8 +143,6 @@
         </div>
         
     </main>
-
-    <footer class="footer"></footer>
 
     <script src="scripts/javascript/cards.js"></script>
 </body>

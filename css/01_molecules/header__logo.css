@@ -2,5 +2,6 @@
 
 .header__logo{
     cursor: pointer;
-    width: clamp(10rem, 60%, 220px)
+    width: clamp(10rem, 60%, 220px);
+    outline-offset: .5rem;
 }
