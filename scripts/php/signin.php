@@ -1,6 +1,4 @@
 <?php
-    include 'lib/config.php';
-    
     if(isset($_POST['signin'])){
         $name=mysqli_real_escape_string($connect, $_POST['name']);
         $email=mysqli_real_escape_string($connect, $_POST['email']);
@@ -18,10 +16,10 @@
 
             if(!$insert){
                 $message="No se pudo realizar el registro. Inténtelo de nuevo más tarde.";
-                $err_login=false;
+                $err=0;
             }
         }
 
-        header('location: http://localhost/homder');
+        header('location: http://localhost/homder?message='.$message.'&err='.$err);
     }
 ?>

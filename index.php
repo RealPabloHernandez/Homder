@@ -2,19 +2,12 @@
 <html lang="es">
 
 <?php
-    $err_login=false;
+    include 'scripts/php/partials/header-config_1.php';
     $message="";
-    session_start();
-
-    $inSession=false;
-
-    if(isset($_SESSION['id'])){
-        echo '<script>console.log("Logged");</script>';
-        $inSession=true;
+    if(isset($_GET['message'])){
+        $message=$_GET['message'];
+        $err_login=filter_var($_GET['err'], FILTER_VALIDATE_BOOLEAN);
     }
-    
-    include 'scripts/php/login.php';
-    include 'scripts/php/signin.php';
 ?>
 
 <head>
@@ -29,6 +22,7 @@
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
+    
 </head>
 <body>
     <header class="header">
@@ -37,7 +31,7 @@
         </a>
         <div class="header__options">
             <div class="header__principal">
-                <a href="#" class="header__button button button--green">Publica</a>
+                <a <?php echo $postLink?> id="make-a-post" class="header__button button button--green">Publica</a>
                 <?php if($inSession){?>
                     <div class="header__profile__container">
                         <div class="header__profile">
@@ -70,21 +64,6 @@
             </div>
         <?php
         }
-        ?>
-        
-
-        <script src="scripts/javascript/access.js"></script>
-        <?php
-            if($message != ""){
-                if($err_login){$access_reff="login_ref";}
-                else{
-                    $access_reff="signin_ref";
-                }
-        ?>
-                <script>initAccess_modal(<?php echo ("'$access_reff' , '$message'")?>)</script>
-        <?php 
-                $message="";
-            }
         ?>
     </header>
 
@@ -146,5 +125,32 @@
     </main>
 
     <script src="scripts/javascript/cards.js"></script>
+    <script src="scripts/javascript/access.js"></script>
+    <script>console.log("mensaje:: "+<?php echo("'$message'")?>)</script>
+    <?php
+        include 'scripts/php/partials/header-config_2.php';
+    ?>
+
+        <?php
+            if($message != ""){
+                if($err_login){$access_reff="login_ref";}
+                else{
+                    $access_reff="signin_ref";
+                }
+
+                //echo '<script>initAccess_modal($access_reff, $message)</script>'
+                
+        ?>
+                <script>initAccess_modal(<?php echo ("'$access_reff' , '$message'")?>)</script>
+                
+        <?php 
+                $message="";
+            }
+
+            if(!$inSession){
+                echo '<script>postbtn.addEventListener("click", ()=>{access_ref.click()});</script>';
+            }
+        ?>
+        
 </body>
 </html>

@@ -1,6 +1,4 @@
 <?php
-    include 'lib/config.php';
-
     if(isset($_POST['login'])){
         $email=mysqli_real_escape_string($connect, $_POST['email']);
         $email=strip_tags($email);
@@ -18,9 +16,8 @@
         }
         else{
             $message="Los datos ingresados no coinciden con nuestros registros.";
-            $err_login=true;
+            $err=1;
         }
-
-        header('location: http://localhost/homder');
+        header('location: http://localhost/homder?message='.$message.'&err='.$err);
     }
 ?>
