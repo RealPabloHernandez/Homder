@@ -1,17 +1,4 @@
-/* .content{
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-}
-
-
-@media screen  and (min-width:700px){
-    .content{
-        padding: 20px 20%;
-    }
- } */
-
- .content{
+.content{
     min-width: 350px;
     display: flex;
     justify-content: center;

@@ -23,9 +23,9 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Encuentra o publica fácil y rápido apartamentos disponibles en tu lugar de preferencia.">
-    <title>Homder - Publicar</title>
+    <title>Homder - Perfil</title>
 
-    <link rel="stylesheet" href="css//03_pages/property.css">
+    <link rel="stylesheet" href="css//03_pages/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
