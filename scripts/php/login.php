@@ -15,9 +15,8 @@
             }
         }
         else{
-            $message="Los datos ingresados no coinciden con nuestros registros.";
-            $err=1;
+            $message="?message=Los datos ingresados no coinciden con nuestros registros.&err=1";
         }
-        header('location: http://localhost/homder?message='.$message.'&err='.$err);
+        header('location: http://localhost/homder'.$message);
     }
 ?>

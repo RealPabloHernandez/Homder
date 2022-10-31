@@ -4,6 +4,14 @@ const menuToggler = document.querySelector(".header__profile__container");
 const menu = document.querySelector(".menu");
 const postbtn=document.querySelector("#make-a-post");
 
+document.body.addEventListener("click", ()=>{
+    if(menu){
+        if(!menu.classList.contains("menu--hidden")){
+            menu.classList.toggle("menu--hidden");
+        }
+    }
+});
+
 if(menuToggler){
     menuToggler.addEventListener("click", (e)=>{
         e.stopPropagation();
@@ -11,14 +19,6 @@ if(menuToggler){
             menu.classList.toggle("menu--hidden");
         }
     })
-
-    document.body.addEventListener("click", ()=>{
-        if(menu){
-            if(!menu.classList.contains("menu--hidden")){
-                menu.classList.toggle("menu--hidden");
-            }
-        }
-    });
 }
 
 if(access_ref){access_ref.addEventListener("click", ()=>{initAccess_modal()})}
@@ -88,6 +88,14 @@ function getLoginModal(){
         </div>
     `;
 
+    modal.addEventListener("click", (e)=>{e.stopPropagation()});
+
+    modal.addEventListener("close", ()=>{
+        if(location.search!=""){
+            location.replace(location.protocol + '//' + location.host + location.pathname);
+        } 
+    });
+
     trimInput(modal.querySelectorAll('[name="email"]')[0]);
     return modal;
 }
@@ -124,6 +132,12 @@ function getSigninModal(){
     let confirms=modal.querySelectorAll('[name="confirm-password"]');
     confirms[0].addEventListener("change", ()=>{confirmPassword(passwords[0], confirms[0])});
 
+    modal.addEventListener("close", ()=>{
+        if(location.search!=""){
+            location.replace(location.protocol + '//' + location.host + location.pathname);
+        } 
+    });
+    
     return modal;
 }
 

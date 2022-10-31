@@ -123,34 +123,11 @@
         </div>
         
     </main>
-
+    
     <script src="scripts/javascript/cards.js"></script>
     <script src="scripts/javascript/access.js"></script>
-    <script>console.log("mensaje:: "+<?php echo("'$message'")?>)</script>
     <?php
         include 'scripts/php/partials/header-config_2.php';
     ?>
-
-        <?php
-            if($message != ""){
-                if($err_login){$access_reff="login_ref";}
-                else{
-                    $access_reff="signin_ref";
-                }
-
-                //echo '<script>initAccess_modal($access_reff, $message)</script>'
-                
-        ?>
-                <script>initAccess_modal(<?php echo ("'$access_reff' , '$message'")?>)</script>
-                
-        <?php 
-                $message="";
-            }
-
-            if(!$inSession){
-                echo '<script>postbtn.addEventListener("click", ()=>{access_ref.click()});</script>';
-            }
-        ?>
-        
 </body>
 </html>
