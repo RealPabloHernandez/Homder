@@ -21,6 +21,10 @@
     min-height: 0;
 }
 
+.button--large{
+    width: 90%;
+}
+
 .button--green{
     background-color: var(--clr-green);
 }

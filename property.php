@@ -30,6 +30,7 @@ else{
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
+    <script src="scripts/javascript/post.js" defer></script>
 </head>
 <body>
     
@@ -74,6 +75,66 @@ else{
         }
         ?>
     </header>
+
+    <main>
+        <div class="content">
+            <form action="" method="post" class="property-form">
+                    <legend class="form__title">¡Publica en Homder totalmente gratis!</legend>
+                    
+                    <div class="inputGroup">
+                        <label for="post-name">Título de la publicación<span class="obligatory">*</span></label>
+                        <input type="text" name="post-name" id="post-name" pattern="^.{5,}$" title="Ingrese un mínimo de 5 caracteres" required>
+                    </div class="inputGroup">
+                    <div class="inputGroup">   
+                        <label for="post-description">Descripción de la publicación<span class="obligatory">*</span></label>
+                        <textarea name="post-description" id="post-description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres" required></textarea>
+                    </div class="inputGroup">
+                    <div class="inputGroup">
+                        <label for="post-location">Ubicación de la propiedad</label>
+                        <input type="text" name="post-location" id="post-location">
+                    </div class="inputGroup">
+                    <div class="inputGroup">
+                        <label for="post-price">Precio<span class="obligatory">*</span></label>
+                        <input type="text" name="post-price" id="post-price" required>
+                    </div class="inputGroup">
+
+                    <fieldset class="detailsField">
+                        <legend>Detalles del edificio</legend>
+                        <div class="inputGroup" class="">
+                            <label for="rooms">Habitaciones</label>
+                            <input type="text" name="rooms" id="rooms" pattern="^[0-9]*$" title="Ingrese solo números">
+                        </div class="inputGroup">
+                        <div class="inputGroup" class="">
+                            <label for="bathrooms">Baños</label>
+                            <input type="text" name="bathrooms" id="bathrooms" pattern="^[0-9]*$" title="Ingrese solo números">
+                        </div class="inputGroup">
+                        <div class="inputGroup" class="">
+                            <label for="inArea">Área interior</label>
+                            <input type="text" name="inArea" id="inArea" pattern="^[0-9]*$" title="Ingrese solo números">
+                        </div class="inputGroup">
+                        <div class="inputGroup" class="" pattern="^[0-9]*$" title="Ingrese solo números">
+                            <label for="outArea">Área exterior</label>
+                            <input type="text" name="outArea" id="outArea" pattern="^[0-9]*$" title="Ingrese solo números">
+                        </div class="inputGroup">
+                    </fieldset>
+
+                    <fieldset class="filesField">
+                        <legend>Adjuntar archivos</legend>
+                        <div>
+                            <input type="file" name="postFiles" id="postFiles" accept="image/*" multiple>
+                            <label class="fileLabel" for="postFiles" tabindex="0">Examinar</label>
+                            <small class="fileText">Sin archivos seleccionados</small>
+                        </div>
+                    </fieldset>
+
+                    <label class="termsLabel" for="terms">
+                        ¿Aceptas que se muestre tu información de contacto en la publicación?<span class="obligatory">*</span><input type="checkbox" name="terms" id="terms" required>
+                    </label>
+                    
+                    <input type="submit" class="button button--green button--large" value="Publicar">
+            </form>
+        </div>
+    </main>
 
     <script src="scripts/javascript/cards.js"></script>
     <script src="scripts/javascript/access.js"></script>

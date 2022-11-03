@@ -1,2 +1,86 @@
 @import url("../index.css");
 @import url("../02_organisms/content.css");
+
+form{
+    display: grid;
+    grid-auto-rows:max-content;
+    gap:10px;
+    background-color: white;
+    padding: 30px;
+    justify-items: center;
+}
+
+input, .inputGroup, textarea, fieldset{
+    width: 100%;
+}
+
+.detailsField{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.fileLabel{
+    display: flex;
+    background-color: lightgray;
+    min-height: 25px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    cursor: pointer;
+    appearance: button;
+}
+
+.fileLabel:hover, .fileLabel:focus{
+    outline: 2px solid black;
+}
+
+.filesField div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.fileText{
+    width: 30ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+
+.form__title{
+    color: var(--clr-green);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+textarea{
+    resize: none;
+}
+
+.termsLabel{
+    display: block;
+}
+
+.obligatory{
+    color: red;
+}
+
+input[type="checkbox"]{
+    width: 1rem;
+    position: relative;
+    margin-left: 1ch;
+  }
+
+  @media screen and (min-width:700px){
+    .filesField div{
+        width:50ch;
+    }
+  }
