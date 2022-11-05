@@ -7,7 +7,7 @@
         $password=mysqli_real_escape_string($connect, $password);
         $password=strip_tags($password);
 
-        $query=mysqli_query($connect,"SELECT * FROM user as u WHERE u.email='$email' AND u.password='$password'");
+        $query=mysqli_query($connect,"SELECT * FROM users as u WHERE u.email='$email' AND u.password='$password'");
 
         if(mysqli_num_rows($query)==1){
             while($row=mysqli_fetch_array($query)){

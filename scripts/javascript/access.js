@@ -52,15 +52,16 @@ function run_modal(reff, message=""){
     modal.showModal();
 
     let next = document.getElementById(nextReff);
-    next.addEventListener("click",()=>{
-        modal.close();
+    
+    next.addEventListener("click",(e)=>{
+        e.stopPropagation();
         header.removeChild(modal);
         run_modal(nextReff);
     });
 
     let closeModal = document.getElementById("close-modal");
     closeModal.addEventListener("click",()=>{
-        modal.close;
+        modal.close();
         header.removeChild(modal);
     });
 
@@ -88,9 +89,10 @@ function getLoginModal(){
         </div>
     `;
 
-    modal.addEventListener("click", (e)=>{e.stopPropagation()});
+    modal.addEventListener("click", (e)=>{e.stopPropagation();});
 
-    modal.addEventListener("close", ()=>{
+    modal.addEventListener("close", (e)=>{
+        e.stopPropagation();
         if(location.search!=""){
             location.replace(location.protocol + '//' + location.host + location.pathname);
         } 
