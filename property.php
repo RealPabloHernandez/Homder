@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+$postLink=$inSession="";
 include 'scripts/php/partials/header-config_1.php';
 
 if(!isset($_SESSION['id'])){
@@ -49,7 +50,7 @@ else{
 
                         <button class="header__menubtn button button--darkgray button--small button--semiradius" aria-label="Abrir menú">
                             <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
-                        </a>
+                        </button>
                     </div>
                 <?php }?>
                 
@@ -78,50 +79,50 @@ else{
 
     <main>
         <div class="content">
-            <form action="" method="post" class="property-form">
+            <form action="http://localhost/homder/scripts/php/property.php" method="post" class="property-form" enctype="multipart/form-data">
                     <legend class="form__title">¡Publica en Homder totalmente gratis!</legend>
                     
                     <div class="inputGroup">
-                        <label for="post-name">Título de la publicación<span class="obligatory">*</span></label>
-                        <input type="text" name="post-name" id="post-name" pattern="^.{5,}$" title="Ingrese un mínimo de 5 caracteres" required>
+                        <label for="title">Título de la publicación<span class="obligatory">*</span></label>
+                        <input type="text" name="title" id="title" pattern="^.{5,}$" title="Ingrese un mínimo de 5 caracteres" required>
                     </div class="inputGroup">
                     <div class="inputGroup">   
-                        <label for="post-description">Descripción de la publicación<span class="obligatory">*</span></label>
-                        <textarea name="post-description" id="post-description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres" required></textarea>
+                        <label for="description">Descripción de la publicación<span class="obligatory">*</span></label>
+                        <textarea name="description" id="description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres" required></textarea>
                     </div class="inputGroup">
                     <div class="inputGroup">
-                        <label for="post-location">Ubicación de la propiedad</label>
-                        <input type="text" name="post-location" id="post-location">
+                        <label for="location">Ubicación de la propiedad</label>
+                        <input type="text" name="location" id="location">
                     </div class="inputGroup">
                     <div class="inputGroup">
-                        <label for="post-price">Precio<span class="obligatory">*</span></label>
-                        <input type="text" name="post-price" id="post-price" required>
+                        <label for="price">Precio<span class="obligatory">*</span></label>
+                        <input type="text" name="price" id="price" autocomplete="transaction-amount" required>
                     </div class="inputGroup">
 
                     <fieldset class="detailsField">
-                        <legend>Detalles del edificio</legend>
+                        <legend>Detalles de la propiedad</legend>
                         <div class="inputGroup" class="">
                             <label for="rooms">Habitaciones</label>
-                            <input type="text" name="rooms" id="rooms" pattern="^[0-9]*$" title="Ingrese solo números">
+                            <input type="number" min="0" name="rooms" id="rooms" pattern="^[0-9]*$" title="Ingrese solo números">
                         </div class="inputGroup">
                         <div class="inputGroup" class="">
                             <label for="bathrooms">Baños</label>
-                            <input type="text" name="bathrooms" id="bathrooms" pattern="^[0-9]*$" title="Ingrese solo números">
+                            <input type="number" min="0" name="bathrooms" id="bathrooms" pattern="^[0-9]*$" title="Ingrese solo números">
                         </div class="inputGroup">
                         <div class="inputGroup" class="">
                             <label for="inArea">Área interior</label>
-                            <input type="text" name="inArea" id="inArea" pattern="^[0-9]*$" title="Ingrese solo números">
+                            <input type="number" min="0" name="innerArea" id="inArea" pattern="^[0-9]*$" title="Ingrese solo números">
                         </div class="inputGroup">
                         <div class="inputGroup" class="" pattern="^[0-9]*$" title="Ingrese solo números">
                             <label for="outArea">Área exterior</label>
-                            <input type="text" name="outArea" id="outArea" pattern="^[0-9]*$" title="Ingrese solo números">
+                            <input type="number" min="0" name="outerArea" id="outArea" pattern="^[0-9]*$" title="Ingrese solo números">
                         </div class="inputGroup">
                     </fieldset>
 
                     <fieldset class="filesField">
                         <legend>Adjuntar archivos</legend>
                         <div>
-                            <input type="file" name="postFiles" id="postFiles" accept="image/*" multiple>
+                            <input type="file" name="files[]" id="postFiles" accept="image/jpg,image/png,image/jpeg,image/gif" multiple>
                             <label class="fileLabel" for="postFiles" tabindex="0">Examinar</label>
                             <small class="fileText">Sin archivos seleccionados</small>
                         </div>
@@ -131,7 +132,7 @@ else{
                         ¿Aceptas que se muestre tu información de contacto en la publicación?<span class="obligatory">*</span><input type="checkbox" name="terms" id="terms" required>
                     </label>
                     
-                    <input type="submit" class="button button--green button--large" value="Publicar">
+                    <input type="submit" class="button button--green button--large" value="Publicar" name="property">
             </form>
         </div>
     </main>

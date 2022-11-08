@@ -19,4 +19,10 @@
         }
         header('location: http://localhost/homder'.$message);
     }
+
+    function filter($connection, $text){
+        $text=mysqli_real_escape_string($connection, $text);
+        $text=strip_tags($text);
+        return $text;
+    }
 ?>
