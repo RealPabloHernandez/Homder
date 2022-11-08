@@ -48,7 +48,7 @@ else{
 
                         <button class="header__menubtn button button--darkgray button--small button--semiradius" aria-label="Abrir menú">
                             <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
-                        </a>
+                        </button>
                     </div>
                 <?php }?>
                 
