@@ -35,9 +35,10 @@
 
 .card__preview{
     border-radius: 10q;
-    content: url("http://localhost/homder/img/temp/apartamento.jpg");
     object-fit: cover;
-    width: max(120px, 30%);
+    width: 80%;
+    min-width: 16ch;
+    max-height: 200px;
 }
 
 .card__user,.card__save{
@@ -47,13 +48,14 @@
 .card__user{
     aspect-ratio: 1/1;
     border-radius: 50%;
-    content: url("http://localhost/homder/img/temp/michael.jpg");
     max-width: 100%;
+    min-width: 30px;
 }
 
 .card__save{
     content: url("http://localhost/homder/img/icons/bookmark-regular.svg");
-    max-width: 50%;
+    width: 50%;
+    min-width: 20px;
 }
 
 .card__saved{
@@ -97,10 +99,13 @@
 }
 
 .card__price{
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 5px 0 0 0;
-    min-width: max(120px, 30%);
-    text-align: center;
+    width: max(120px, 30%);
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card__features{
@@ -125,7 +130,7 @@
 
 }
 
-.card__bedrooms::before{
+.card__rooms::before{
     content: url("http://localhost/homder/img/icons/bed-solid.svg");
 }
 

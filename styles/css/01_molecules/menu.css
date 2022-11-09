@@ -53,11 +53,11 @@
 }
 
 .menu-icon.profile{
-    content: url("../../../img/icons/user-regular.svg");
+    content: url("http://localhost/homder/img/icons/user-regular.svg");
 }
 
 .menu-icon.logout{
-    content: url("../../../img/icons/right-from-bracket-solid.svg");
+    content: url("http://localhost/homder/img/icons/right-from-bracket-solid.svg");
     
 }
 

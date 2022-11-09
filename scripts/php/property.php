@@ -2,7 +2,7 @@
 include('../../config.php');
 session_start();
 
-if(isset($_POST['property'])){
+if(isset($_POST['property']) || isset($_POST['editProperty'])){
     $title=$_POST['title'];
     $description=$_POST['description'];
     $location=$_POST['location'];
@@ -23,11 +23,24 @@ if(isset($_POST['property'])){
     $userID=filter($connect, $userID);
 
     $post_info="'".$title."','". $description."','". $location."','".$price."','".$rooms."','".$bathrooms."','".$innerArea."','".$outerArea."','".$userID."'";
-    echo $post_info."<br>";
-    $insertPost = $connect ->query("INSERT INTO posts (title, description, location, price, rooms, bathrooms, innerArea, outerArea, userID) values ($post_info)");
-    $post_ID=$connect->insert_id;
 
-    if($insertPost){
+    if(isset($_POST['property'])){
+        $insertedPost = $connect ->query("INSERT INTO posts (title, description, location, price, rooms, bathrooms, innerArea, outerArea, userID) values ($post_info)");
+        $post_ID=$connect->insert_id;
+    }
+
+    if(isset($_POST['editProperty'])){
+        $post_ID = $_POST['postID'];
+        $insertedPost = $connect ->query("UPDATE posts SET (title=$title, description=$description, location=$location, price=$price, rooms=$rooms, bathrooms=$bathrooms, innerArea=$innerArea, outerArea=$outerArea) WHERE id=$post_ID");
+    }
+
+
+    if($insertedPost){
+
+        if(isset($_POST['editProperty'])){
+            $deleted = $connect ->query("DELETE FROM post_images WHERE post_id=$post_ID");
+        }
+
         $_SESSION['message']="";
         $targetDir="../../uploads/";
         $allowTypes = array('jpg','png','jpeg','gif');
@@ -76,8 +89,7 @@ if(isset($_POST['property'])){
 function filter($connection, $text){
     $text=mysqli_real_escape_string($connection, $text);
     $text=strip_tags($text);
-    $text=trim($text);
-    return $text;
+    return trim($text);
 }
 
 ?>

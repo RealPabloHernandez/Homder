@@ -42,7 +42,7 @@
 }
 
 @media screen and (min-width:700px){
-    .button, .button--bigger:not(){
+    .button{
         height: 2.1rem;
     }
 }

@@ -14,3 +14,21 @@ Array.from(cards).forEach(card => {
         console.log("CARD");
     });    
 });
+
+let prices = document.getElementsByClassName("card__price");
+let priceWidth = document.querySelector(".card__preview");
+//let timeOutFunctionID;
+adaptPricesWidth();
+
+addEventListener("resize",()=>{
+    adaptPricesWidth();
+    //clearTimeout(timeOutFunctionID);
+    //timeOutFunctionID = setTimeout(adaptPricesWidth, 500);
+})
+
+function adaptPricesWidth(){
+    let width=priceWidth.clientWidth;
+    for (let i = 0; i < prices.length; i++) {
+        prices[i].style.width=width+"px";
+    }
+}

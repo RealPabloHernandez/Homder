@@ -25,11 +25,17 @@ else{
     <meta name="description" content="Encuentra o publica fácil y rápido apartamentos disponibles en tu lugar de preferencia.">
     <title>Homder - Publicación</title>
 
-    <link rel="stylesheet" href="css//03_pages/property.css">
+    <link rel="stylesheet" href="styles/css//03_pages/property.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
+
+    <?php
+    if($inSession){
+        echo '<link rel="stylesheet" href="styles/components/profile.php">';
+    }
+    ?>
 </head>
 <body>
     
