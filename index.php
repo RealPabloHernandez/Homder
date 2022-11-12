@@ -115,7 +115,7 @@
 
                                     <div class="card__text">
                                         <h2 class="card__title"><?php echo $post['title']?></h2>
-                                        <div class="card__location"><?php echo $post['location']?></div>
+                                        <div class="location"><?php echo $post['location']?></div>
                                         <div class="card__description"><?php echo $post['description']?></div>
                                     </div>
                                 </div>
@@ -123,19 +123,19 @@
                                 <div class="card__properties">
                                     <h3 class="card__price" title="<?php echo $post['price']?>"><?php echo $post['price']?></h3>
                                     <div class="card__features">
-                                        <div class="card__rooms card__feature">
+                                        <div class="rooms feature">
                                             <?php echo $post['rooms']?>
                                         </div>
 
-                                        <div class="card__bathrooms card__feature">
+                                        <div class="bathrooms feature">
                                             <?php echo $post['bathrooms']?>
                                         </div>
 
-                                        <div class="card__area-inside card__feature">
+                                        <div class="area-inside feature">
                                             <?php echo $post['innerArea']."m²"?>
                                         </div>
 
-                                        <div class="card__area-outside card__feature">
+                                        <div class="area-outside feature">
                                             <?php echo $post['outerArea']."m²"?>
                                         </div>
 

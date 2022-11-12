@@ -16,6 +16,10 @@
     padding-right: 40px;
 }
 
+.card__info--large-padding{
+    padding-right: 50px;
+}
+
 .card__options{
     align-items: center;
     display: flex;
@@ -26,6 +30,12 @@
     top: 10px;
     width: 30px;
 }
+
+.card__options--center{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 .card__content{
     display: flex;
@@ -41,7 +51,7 @@
     max-height: 200px;
 }
 
-.card__user,.card__save{
+.card__user,.card__save, .card__delete, .card__edit{
     cursor: pointer;
 }
 
@@ -62,6 +72,19 @@
     content: url("http://localhost/homder/img/icons/bookmark-solid.svg");
 }
 
+.card__edit, .card__delete{
+    min-width: 20px;
+    aspect-ratio: 1/1;
+}
+
+.card__delete{
+    content: url("http://localhost/homder/img/icons/trash-solid.svg");
+}
+
+.card__edit{
+    content: url("http://localhost/homder/img/icons/pen-to-square-solid.svg");
+}
+
 .card__properties{
     align-items: center;
     display: flex;
@@ -72,21 +95,6 @@
 .card__title{
     font-size: 1.1rem;
     margin-bottom: 0;
-}
-
-.card__location{
-    display: flex;
-    flex-wrap: nowrap;
-    font-size: .7rem;
-    font-weight: bold;
-    gap: 5px;
-    margin: 5px 0 0 0;
-}
-
-.card__location::before{
-    aspect-ratio: 1/1;
-    content: url("http://localhost/homder/img/icons/location-dot-solid.svg");   
-    height: .6rem;
 }
 
 .card__description{
@@ -116,33 +124,6 @@
     justify-content:space-around;
     width: max(150px, 30%);
 }
-
-.card__feature{
-    display: flex;
-    margin:0 5px;
-}
-
-.card__feature::before{
-    aspect-ratio: 1/1;
-    height: .8rem;
-    left: 0;
-    margin-right: 5px;
-
-}
-
-.card__rooms::before{
-    content: url("http://localhost/homder/img/icons/bed-solid.svg");
-}
-
-.card__bathrooms::before{
-    content: url("http://localhost/homder/img/icons/bath-solid.svg");
-}
-.card__area-inside::before{
-    content: url("http://localhost/homder/img/icons/minimize-solid.svg");
-}
-.card__area-outside::before{
-    content: url("http://localhost/homder/img/icons/maximize-solid.svg");
-} 
 
 
 @media screen and (min-width:700px) {

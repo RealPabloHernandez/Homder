@@ -1,2 +1,58 @@
 @import url("../index.css");
 @import url("../02_organisms/content.css");
+@import url("../02_organisms/cards.css");
+@import url("../01_molecules/indicatory.css");
+@import url("../01_molecules/rating.css");
+
+.userinfo{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    background: white;
+    margin: 1rem 0;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.userinfo__picture{
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 1rem;
+}
+
+.userinfo__content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+}
+
+.userinfo__name{
+    margin: 0;
+}
+
+.userinfo__email{
+    font-size: 0.8rem;
+}
+
+.rating-container{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.userinfo__edit{
+    display: block;
+    max-width: 20px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}

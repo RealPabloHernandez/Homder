@@ -1,0 +1,19 @@
+.contact{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.contact__author{
+    display: inline-flex;
+    justify-items: center;
+    align-items: center;
+}
+.contact__profile{
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.contact__name{
+    margin: 0;
+    font-size: 1rem;
+}

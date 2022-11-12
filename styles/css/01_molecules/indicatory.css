@@ -1,0 +1,41 @@
+.feature{
+    display: flex;
+    margin:5px 5px;
+}
+
+.feature::before{
+    aspect-ratio: 1/1;
+    height: .8rem;
+    left: 0;
+    margin-right: 5px;
+
+}
+
+.location{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: .7rem;
+    font-weight: bold;
+    gap: 5px;
+    margin: 5px 0 0 0;
+}
+
+.location::before{
+    aspect-ratio: 1/1;
+    content: url("http://localhost/homder/img/icons/location-dot-solid.svg");
+    height: .6rem;
+}
+
+.rooms::before{
+    content: url("http://localhost/homder/img/icons/bed-solid.svg");
+}
+
+.bathrooms::before{
+    content: url("http://localhost/homder/img/icons/bath-solid.svg");
+}
+.area-inside::before{
+    content: url("http://localhost/homder/img/icons/minimize-solid.svg");
+}
+.area-outside::before{
+    content: url("http://localhost/homder/img/icons/maximize-solid.svg");
+}

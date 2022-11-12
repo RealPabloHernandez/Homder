@@ -9,10 +9,6 @@ Array.from(cards).forEach(card => {
         })
         
     })
-
-    card.addEventListener("click", ()=>{
-        console.log("CARD");
-    });    
 });
 
 let prices = document.getElementsByClassName("card__price");

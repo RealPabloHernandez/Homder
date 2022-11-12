@@ -13,4 +13,5 @@
     else{
         $select=mysqli_select_db($connect, $db);
     }
+    $path=getcwd();
 ?>

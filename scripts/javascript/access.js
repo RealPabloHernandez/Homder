@@ -2,7 +2,6 @@ const access_ref=document.getElementById("access-ref");
 const header = document.querySelector(".header");
 const menuToggler = document.querySelector(".header__profile__container");
 const menu = document.querySelector(".menu");
-const postbtn=document.querySelector("#make-a-post");
 
 document.body.addEventListener("click", ()=>{
     if(menu){

@@ -1,0 +1,85 @@
+@import url("../01_molecules/indicatory.css");
+@import url("../index.css");
+@import url("../01_molecules/conctact.css");
+@import url("../02_organisms/galleryViewer.css");
+
+.post{
+    background: white;
+    min-width: 350px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.post__description{
+    margin: 1rem 0;
+}
+
+.post__presentation{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.post__images{
+    height: 300px;
+    aspect-ratio: 1/1;
+    background: #FFF;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.post__images:is(:hover, :focus, :focus-within)::after{
+    content: "";
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(0,0,0,0.05);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.post__images:active::after{
+    background: rgba(0,0,0,0.1);
+}
+
+.post__image{
+    width: 100%;
+    aspect-ratio: inherit;
+    object-fit:cover;
+}
+
+.post__price{
+    color:var(--clr-green);
+    font-size: 1.8rem;
+}
+
+.post__title, .post__section{
+    margin: 1rem 0 .5rem 0;
+}
+
+.post__title{
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+
+
+@media screen and (min-width:850px){
+    .post{
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width:700px) {
+    .post{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .post__image{
+        width: 100%;
+    }
+}

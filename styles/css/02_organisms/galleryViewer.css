@@ -1,0 +1,48 @@
+.galleryViewer{
+    border: solid white 5px;
+    background: white;
+    padding: 0;
+    align-items: center;
+    overflow: hidden;
+}
+
+.galleryViewer::backdrop{
+    backdrop-filter: blur(2px);
+}
+
+.galleryViewer__left, .galleryViewer__right{
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    top: 0;
+}
+
+.galleryViewer__left:hover, .galleryViewer__right:hover{
+    background: rgba(0,0,0,0.1);
+}
+
+.galleryViewer__right{
+    right: 0;
+}
+
+.galleryViewer__left{
+    left: 0;
+}
+
+
+@media screen and (max-width: 700px){
+    .galleryViewer{
+        aspect-ratio: 1/1;
+        max-height: 70%;
+        width: 100%;
+    }
+
+    .galleryViewer__view{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

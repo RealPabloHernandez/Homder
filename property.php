@@ -19,20 +19,24 @@ $title=$description=$location=$price=$rooms=$bathrooms=$outerArea=$innerArea="";
 
 //Al editar, obtener los datos de las bases de datos y asignar los valores
 //Para las imágenes simplemente se piden de nuevo y se borran las anteriores
-if(isset($_POST['EditProperty'])){
-    $post_ID = $_POST['postID'];
+$reference="property";
+$submitValue="Publicar";
+if(isset($_GET['edit'])){
+    $reference="editProperty";
+    $submitValue="Guardar";
+    $post_ID = $_GET['id'];
     $edit=$connect->query("SELECT * FROM posts WHERE id=$post_ID");
     if($edit->num_rows>0){
         $row=$edit->fetch_assoc();
         if($row['userID']==$_SESSION['id']){
-            $title=$row['title'];
+            $title="value='".$row['title']."'";
             $description=$row['description'];
-            $location=$row['location'];
-            $price=$row['price'];
-            $rooms=$row['rooms'];
-            $bathrooms=$row['bathrooms'];
-            $innerArea=$row['innerArea'];
-            $outerArea=$row['outerArea'];
+            $location="value='".$row['location']."'";
+            $price="value='".$row['price']."'";
+            $rooms="value='".$row['rooms']."'";
+            $bathrooms="value='".$row['bathrooms']."'";
+            $innerArea="value='".$row['innerArea']."'";
+            $outerArea="value='".$row['outerArea']."'";
         }
 
         else{
@@ -56,7 +60,7 @@ if(isset($_POST['EditProperty'])){
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
-    <script src="scripts/javascript/post.js" defer></script>
+    <script src="scripts/javascript/property.js" defer></script>
     <?php
     if($inSession){
         echo '<link rel="stylesheet" href="styles/components/profile.php">';
@@ -118,7 +122,8 @@ if(isset($_POST['EditProperty'])){
                     </div class="inputGroup">
                     <div class="inputGroup">   
                         <label for="description">Descripción de la publicación<span class="obligatory">*</span></label>
-                        <textarea name="description" id="description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres" <?php echo $description?>  required></textarea>
+                        <textarea name="description" id="description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres"  required><?php echo $description;?>
+                        </textarea>
                     </div class="inputGroup">
                     <div class="inputGroup">
                         <label for="location">Ubicación de la propiedad</label>
@@ -161,13 +166,12 @@ if(isset($_POST['EditProperty'])){
                     <label class="termsLabel" for="terms">
                         ¿Aceptas que se muestre tu información de contacto en la publicación?<span class="obligatory">*</span><input type="checkbox" name="terms" id="terms" required>
                     </label>
-                    
-                    <input type="submit" class="button button--green button--large" value="Publicar" name="property">
+                    <input type="hidden" name="postID" value="<?php echo $post_ID?>">
+                    <input type="submit" class="button button--green button--large" value="<?php echo $submitValue?>" name="<?php echo $reference?>">
             </form>
         </div>
     </main>
 
-    <script src="scripts/javascript/cards.js"></script>
     <script src="scripts/javascript/access.js"></script>
     <?php
         include 'scripts/php/partials/header-config_2.php';

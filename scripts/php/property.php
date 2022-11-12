@@ -31,13 +31,23 @@ if(isset($_POST['property']) || isset($_POST['editProperty'])){
 
     if(isset($_POST['editProperty'])){
         $post_ID = $_POST['postID'];
-        $insertedPost = $connect ->query("UPDATE posts SET (title=$title, description=$description, location=$location, price=$price, rooms=$rooms, bathrooms=$bathrooms, innerArea=$innerArea, outerArea=$outerArea) WHERE id=$post_ID");
+        $insertedPost = $connect ->query("UPDATE posts SET title='$title', description='$description', location='$location', price='$price', rooms='$rooms', bathrooms='$bathrooms', innerArea='$innerArea', outerArea='$outerArea' WHERE id = '$post_ID'");
     }
 
 
     if($insertedPost){
 
         if(isset($_POST['editProperty'])){
+            $toDelete = $connect->query("SELECT * FROM post_images WHERE post_id=$post_ID");
+            if($toDelete->num_rows>0){
+                while ($row=$toDelete->fetch_assoc()){
+                    $deleted = unlink($_SERVER["DOCUMENT_ROOT"]."/homder/uploads/".$row['file_name']);
+                    if($deleted){
+                    } else{
+                        echo "sorry";
+                    }
+                }
+            }
             $deleted = $connect ->query("DELETE FROM post_images WHERE post_id=$post_ID");
         }
 
@@ -70,20 +80,20 @@ if(isset($_POST['property']) || isset($_POST['editProperty'])){
                 $insert = $connect->query("INSERT INTO post_images (file_name, uploaded_on, post_id) VALUES $insertValuesSQL");
 
                 if($insert){
-                    $_SESSION['message']= "Files are uploaded successfully.";
+                    header("location: http://localhost/homder/post.php?id=$post_ID");
                 }else{
                     $_SESSION['message']="Sorry, there was an error uploading your file.";
                 }
             }else{
                 $_SESSION['message']="Upload failed! ";
             }
-
-            echo("¿Error?<:::>".$_SESSION['message']);
         }
 
     }else{
         $_SESSION['message']="Sorry, there was an error uploading your post.";
     }
+} else{
+    header("location: http://localhost/homder");
 }
 
 function filter($connection, $text){

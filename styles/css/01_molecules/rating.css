@@ -1,0 +1,36 @@
+.rating:not(:checked) > input{
+    position: absolute;
+    display: none;
+}
+
+.rating:not(:checked) > label:before{
+    content: "★ ";
+}
+
+.rating:not(:checked) > label{
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2rem;
+    width: 2rem;
+    aspect-ratio: 1/1;
+    color: #DDD;
+    cursor: pointer;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~label{
+    color: #d8a000;
+}
+
+.rating > input:checked ~ label{
+    color:#ffc83d;
+}
+
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > lavel:hover ~ input:checked ~ label,
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label{
+    color:#ffc83d;
+}
