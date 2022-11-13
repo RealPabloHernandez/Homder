@@ -6,7 +6,7 @@ include 'scripts/php/partials/header-config_1.php';
 $userID=$_GET['id'];
 $users=$connect->query("SELECT * FROM users WHERE id=$userID");
 
-if(!(isset($_SESSION['id']) && $users->num_rows>0)){
+if(!( $users->num_rows>0)){
    header("location: http://localhost/homder/");
 }
 
@@ -76,7 +76,7 @@ if($thisProfilePicture=='default-user.svg'){
                                 $rating=$ratingQuery->fetch_assoc();
                             }
 
-                            if($userID==$_SESSION['id']){
+                            if(isset($_SESSION['id']) && $userID==$_SESSION['id']){
                                 echo '<a href="edit-profile.php" class="userinfo__edit" href=""><img src="" alt="" class="card__edit"></a>';
                             }
                         ?>
@@ -103,7 +103,7 @@ if($thisProfilePicture=='default-user.svg'){
                 </div>
             </section>
             <?php
-                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE u.id=$userID");
+                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE u.id=$userID ORDER BY Pid DESC");
             ?>
             <div class="controls">
                 <span><small>Publicaciones: <?php echo $posts->num_rows?></small></span>
@@ -118,10 +118,17 @@ if($thisProfilePicture=='default-user.svg'){
                     while($post=$posts->fetch_assoc()){
                         ?>
                         <div onclick="window.location='http://localhost/homder/post.php?id=<?php echo $post['pid']?>';" class="card">
-                            <div class="card__options card__options--center">
-                                <a href="<?php echo "http://localhost/homder/property.php?edit=0&id=".$post['pid']?>"><img alt="Editar" class="card__edit"></a>
-                                <a href="<?php echo "http://localhost/homder/scripts/php/deleteproperty.php?id=".$post['pid']?>"><img alt="Eliminar" class="card__delete"></a>
-                            </div>
+                            <?php
+                                if(isset($_SESSION['id']) && $_SESSION['id']==$post['uid']){
+                                ?>
+                                    <div class="card__options card__options--center">
+                                        <a href="<?php echo "http://localhost/homder/property.php?edit=0&id=".$post['pid']?>"><img alt="Editar" class="card__edit"></a>
+                                        <a href="<?php echo "http://localhost/homder/scripts/php/deleteproperty.php?id=".$post['pid']?>"><img alt="Eliminar" class="card__delete"></a>
+                                    </div>
+                                <?php
+                                }
+                            ?>
+
                             <div class="card__info card__info--large-padding">
                                 <div class="card__content">
                                     <?php

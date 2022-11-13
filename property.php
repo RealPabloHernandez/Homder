@@ -89,19 +89,19 @@ if(isset($_GET['edit'])){
 
                     <fieldset class="detailsField">
                         <legend>Detalles de la propiedad</legend>
-                        <div class="inputGroup" class="">
+                        <div class="inputGroup">
                             <label for="rooms">Habitaciones</label>
                             <input type="number" min="0" name="rooms" id="rooms" <?php echo $rooms?> autocomplete="off">
                         </div class="inputGroup">
-                        <div class="inputGroup" class="">
+                        <div class="inputGroup">
                             <label for="bathrooms">Baños</label>
                             <input type="number" min="0" name="bathrooms" id="bathrooms" <?php echo $bathrooms?> autocomplete="off">
                         </div class="inputGroup">
-                        <div class="inputGroup" class="">
+                        <div class="inputGroup">
                             <label for="inArea">Área interior(m²)</label>
                             <input type="number" min="0" name="innerArea" id="inArea" <?php echo $innerArea?> autocomplete="off">
                         </div class="inputGroup">
-                        <div class="inputGroup" class="">
+                        <div class="inputGroup">
                             <label for="outArea">Área exterior(m²)</label>
                             <input type="number" min="0" name="outerArea" id="outArea" <?php echo $outerArea?> autocomplete="off">
                         </div class="inputGroup">

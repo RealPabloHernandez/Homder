@@ -38,7 +38,7 @@
             <section class="cards">
                 <h2 class="cards__title">Recomendados</h2>
                 <?php
-                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u");
+                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u ORDER BY Pid DESC");
                 if($posts->num_rows>0){
                     while($post=$posts->fetch_assoc()){
                         $thisProfilePicture=$post['profile-pic'];
