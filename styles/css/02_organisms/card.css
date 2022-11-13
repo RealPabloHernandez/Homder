@@ -38,13 +38,14 @@
 
 
 .card__content{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     gap: 10px;
 }
 
 .card__preview{
     border-radius: 10q;
+    aspect-ratio: 1/1;
     object-fit: cover;
     width: 80%;
     min-width: 16ch;
@@ -137,6 +138,7 @@
     .card__price{
         margin: 1rem 0;
     }
+
 }
 
 @media screen and (min-width:850px) {
