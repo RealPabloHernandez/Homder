@@ -29,7 +29,7 @@
     <?php include "scripts/php/partials/header.php";?>
 
     <main>
-        <form action="" class="search">
+        <form class="search" method="get">
             <input type="search" class="text-input text-input--shadow" name="search" placeholder="¿Qué buscas hoy?" aria-label="Busqueda" autocomplete="off" required>
             <input type="submit" class="button button--darkgray button--semiradius button--bigger" value="Buscar">
         </form>
@@ -38,7 +38,13 @@
             <section class="cards">
                 <h2 class="cards__title">Recomendados</h2>
                 <?php
-                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u ORDER BY Pid DESC");
+                if(isset($_GET['search'])){
+                    $search=$_GET['search'];
+                    $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE p.description LIKE '%$search%' OR p.title LIKE '%$search%' OR p.location LIKE '%$search%' OR u.name LIKE '%$search%'  ORDER BY pid DESC");
+                }
+                else{
+                    $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u ORDER BY pid DESC");
+                }
                 if($posts->num_rows>0){
                     while($post=$posts->fetch_assoc()){
                         $thisProfilePicture=$post['profile-pic'];
