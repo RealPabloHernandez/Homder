@@ -1,21 +1,26 @@
-# Homder-Base de datos
-Ejecute el código en su consola SQL para la creación de la base de datos.
+# Homder — Base de datos
+Ejecute los códigos en el apartado de comandos de su MySql para ejecutar con éxito Homder.
 -------------------------------------------------------------------
 ```MySql
     create database Homder;
     use Homder;
-
+```
+Tabla de usuarios
+```MySql
     create table `users`(
         `id` int auto_increment,
         `name` varchar(100) not null ,
         `email` varchar(100) not null,
         `password` varchar(100) not null,
-        'description' varchar(255),
-        `profile-pic` varchar(255) default 'http://localhost/Homder/img/default-user.svg',
+        `description` varchar(255),
+        `phone` varchar(15),
+        `profile-pic` varchar(255) default 'default-user.svg',
 
         primary key (`id`)
     );
-
+```
+Tabla de publicaciones
+```MySql
     create table `posts`(
         `id` int auto_increment,
         `title` varchar(100) not null ,
@@ -30,7 +35,9 @@ Ejecute el código en su consola SQL para la creación de la base de datos.
         primary key (id),
         foreign key (userid) REFERENCES users(id)
     );
-
+```
+Tabla de imágenes de publicaciones
+```MySql
     create table `post_images`(
         `id` int auto_increment,
         `file_name` varchar(255) not null,
@@ -40,7 +47,10 @@ Ejecute el código en su consola SQL para la creación de la base de datos.
         primary key (`id`),
         foreign key (post_id) references posts(id)
     );
+```
 
+Tabla de calificaciones de usuario
+```MySql
     create table `ratings`(
         `id` int auto_increment,
         `rating` int default 0,
@@ -51,3 +61,5 @@ Ejecute el código en su consola SQL para la creación de la base de datos.
         FOREIGN KEY (target_id) references users(id)
     );
 ```
+
+
