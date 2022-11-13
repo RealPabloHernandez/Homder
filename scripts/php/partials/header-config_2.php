@@ -12,6 +12,10 @@
     }
 
     if(!$inSession){
-        echo '<script>postbtn.addEventListener("click", ()=>{access_ref.click()});</script>';
+        echo '<script>
+                if(postbtn){
+                    postbtn.addEventListener("click", ()=>{access_ref.click()})
+                };
+            </script>';
     }
 ?>

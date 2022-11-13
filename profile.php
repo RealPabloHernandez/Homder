@@ -18,6 +18,15 @@ if(isset($_GET['message'])){
 
 $user=$users->fetch_assoc();
 $userID=$user['id'];
+
+$thisProfilePicture=$user['profile-pic'];
+$thisProfilePictureFolder="uploads/";
+
+if($thisProfilePicture=='default-user.svg'){
+    $thisProfilePictureFolder="img/";
+}
+
+
 ?>
 
 <html lang="es">
@@ -33,59 +42,14 @@ $userID=$user['id'];
     
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
-    <?php
-    if($inSession){
-        echo '<link rel="stylesheet" href="styles/components/profile.php">';
-    }
-    ?>
 </head>
 <body>
-    <header class="header">
-        <a href="http://localhost/homder/" class="header__logo">
-            <img alt="Homder Logo" class="logo">
-        </a>
-        <div class="header__options">
-            <div class="header__principal">
-                <a <?php echo $postLink?> id="make-a-post" class="header__button button button--green">Publica</a>
-                <?php if($inSession){?>
-                    <div class="header__profile__container">
-                        <div class="header__profile">
-                            <img alt="Foto de perfil" class="profile-picture">
-                        </div>
-
-                        <button class="header__menubtn button button--darkgray button--small button--semiradius" aria-label="Abrir menú">
-                            <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
-                        </button>
-                    </div>
-                <?php }?>
-                
-                <?php if(!$inSession){?>
-                    <div class="header__profile header__profile--session-off">
-                        <a class="link" id="access-ref">Acceder</a>
-                    </div>
-                <?php }?>
-                
-            </div>
-        </div>
-
-        <?php
-        if($inSession){
-        ?>
-            <div class="menu menu--hidden">
-                <div class="menu__list">
-                    <a href="profile.php?id=<?php echo($_SESSION['id'])?>" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon profile" alt="Icon"> Ver perfil</a>
-                    <a href="scripts\php\logout.php" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon logout" alt="icon">Cerrar sesión</a>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
-    </header>
+    <?php include "scripts/php/partials/header.php";?>
 
     <main>
         <div class="content">
             <section class="userinfo">
-                <img class="userinfo__picture" src="<?php echo $user['profile-pic']?>" alt="Foto de perfil de <?php echo $user['name']?>">
+                <img class="userinfo__picture" src="<?php echo "http://localhost/homder/".$thisProfilePictureFolder.$thisProfilePicture?>" alt="Foto de perfil de <?php echo $user['name']?>">
 
                 <div class="userinfo__content">
                     <div class="userinfo__data">
@@ -102,7 +66,7 @@ $userID=$user['id'];
                         <div class="userinfo__contact">
                             <?php
                             if(isset($user['phone'])){
-                                echo '<div class="userinfo__phone">'.$user['phone'].'</div>';
+                                echo '<div class="phone feature">'.$user['phone'].'</div>';
                             }
                             ?>
                         </div>
@@ -113,7 +77,7 @@ $userID=$user['id'];
                             }
 
                             if($userID==$_SESSION['id']){
-                                echo '<a class="userinfo__edit" href=""><img src="" alt="" class="card__edit"></a>';
+                                echo '<a href="edit-profile.php" class="userinfo__edit" href=""><img src="" alt="" class="card__edit"></a>';
                             }
                         ?>
 
@@ -139,7 +103,7 @@ $userID=$user['id'];
                 </div>
             </section>
             <?php
-                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid FROM posts as p INNER JOIN users as u WHERE u.id=$userID");
+                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE u.id=$userID");
             ?>
             <div class="controls">
                 <span><small>Publicaciones: <?php echo $posts->num_rows?></small></span>

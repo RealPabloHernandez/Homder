@@ -52,14 +52,13 @@ if(isset($_POST['property']) || isset($_POST['editProperty'])){
         }
 
         $_SESSION['message']="";
-        $targetDir="../../uploads/";
-        $allowTypes = array('jpg','png','jpeg','gif');
+        $targetDir=$_SERVER["DOCUMENT_ROOT"]."/homder/uploads/";
+        $allowTypes = array('jpg','png','jpeg','gif', 'webp');
         $fileNames = array_filter($_FILES['files']['name']);
-        $insertValuesSQL= '';
 
         if(!empty($fileNames)){
+            $insertValuesSQL="";
             foreach($_FILES['files']['name'] as $key=>$val){
-
                 $fileName = basename($_FILES['files']['name'][$key]);
                 $extension = pathinfo($fileName, PATHINFO_EXTENSION);
 
@@ -81,8 +80,10 @@ if(isset($_POST['property']) || isset($_POST['editProperty'])){
 
                 if($insert){
                     header("location: http://localhost/homder/post.php?id=$post_ID");
+                    echo "done";
                 }else{
                     $_SESSION['message']="Sorry, there was an error uploading your file.";
+                    echo $_SESSION['message'];
                 }
             }else{
                 $_SESSION['message']="Upload failed! ";
@@ -95,6 +96,7 @@ if(isset($_POST['property']) || isset($_POST['editProperty'])){
 } else{
     header("location: http://localhost/homder");
 }
+echo $_SESSION['message'];
 
 function filter($connection, $text){
     $text=mysqli_real_escape_string($connection, $text);

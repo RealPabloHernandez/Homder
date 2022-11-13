@@ -1,0 +1,80 @@
+@import url("../index.css");
+@import url("../02_organisms/content.css");
+
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 20px;
+    max-width: 100%;
+    min-width: 100%;
+}
+.profile-form > input[type="file"]{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.profile__picture-image{
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.profile__picture+label{
+    width: 40%;
+    margin: 1rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile__picture:is(:focus, :focus-within) +label{
+    outline: 2px solid black;
+}
+
+
+.profile__picture:is(:focus, :focus-within, :focus-visible, :active) + label::before,
+.profile__picture+label:hover::before,
+.profile__picture:is(:focus, :focus-within, :focus-visible, :active) + label::after,
+.profile__picture+label:hover::after{
+    content: "";
+    display: inline-block;
+    min-width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+}
+
+.profile__picture:is(:focus, :focus-within, :focus-visible, :active) + label::before,
+.profile__picture+label:hover::before{
+    background: rgba(0,0,0,0.15);
+}
+
+.profile__picture:is(:focus, :focus-within, :focus-visible, :active) + label::after,
+.profile__picture+label:hover::after{
+    background: url("http://localhost/homder/img/icons/cloud-arrow-up-solid.svg") no-repeat center;
+    background-size: 50px 50px;
+}
+
+@media screen and (min-width: 700px){
+    .profile-form{
+        max-width: 450px;
+        min-width: 450px;
+    }
+}
+
+
+
+
+

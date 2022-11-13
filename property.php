@@ -61,55 +61,9 @@ if(isset($_GET['edit'])){
     <link rel="icon" href="img/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
     <script src="scripts/javascript/property.js" defer></script>
-    <?php
-    if($inSession){
-        echo '<link rel="stylesheet" href="styles/components/profile.php">';
-    }
-    ?>
 </head>
 <body>
-    
-    <header class="header">
-        <a href="http://localhost/homder/" class="header__logo">
-            <img alt="Homder Logo" class="logo">
-        </a>
-        <div class="header__options">
-            <div class="header__principal">
-                <a <?php echo $postLink?> id="make-a-post" class="header__button button button--green">Publica</a>
-                <?php if($inSession){?>
-                    <div class="header__profile__container">
-                        <div class="header__profile">
-                            <img alt="Foto de perfil" class="profile-picture">
-                        </div>
-
-                        <button class="header__menubtn button button--darkgray button--small button--semiradius" aria-label="Abrir menú">
-                            <img class="menu-icon menu-icon--small"src="img\icons\caret-down-solid.svg" alt="">
-                        </button>
-                    </div>
-                <?php }?>
-                
-                <?php if(!$inSession){?>
-                    <div class="header__profile header__profile--session-off">
-                        <a class="link" id="access-ref">Acceder</a>
-                    </div>
-                <?php }?>
-                
-            </div>
-        </div>
-
-        <?php
-        if($inSession){
-        ?>
-            <div class="menu menu--hidden">
-                <div class="menu__list">
-                    <a href="profile.php?id=<?php echo($_SESSION['id'])?>" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon profile" alt="Icon"> Ver perfil</a>
-                    <a href="scripts\php\logout.php" class="menu-item link link--white link--wordspace link--noafter"><img class="menu-icon logout" alt="icon">Cerrar sesión</a>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
-    </header>
+    <?php include "scripts/php/partials/header.php";?>
 
     <main>
         <div class="content">
@@ -122,8 +76,7 @@ if(isset($_GET['edit'])){
                     </div class="inputGroup">
                     <div class="inputGroup">   
                         <label for="description">Descripción de la publicación<span class="obligatory">*</span></label>
-                        <textarea name="description" id="description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres"  required><?php echo $description;?>
-                        </textarea>
+                        <textarea name="description" id="description" maxlength="500" rows="5" pattern="^.{16,}$" title="Ingrese un mínimo de 16 caracteres"  required><?php echo $description;?></textarea>
                     </div class="inputGroup">
                     <div class="inputGroup">
                         <label for="location">Ubicación de la propiedad</label>
@@ -157,7 +110,7 @@ if(isset($_GET['edit'])){
                     <fieldset class="filesField">
                         <legend>Adjuntar archivos<span class="obligatory">*</span></legend>
                         <div>
-                            <input type="file" name="files[]" id="postFiles" accept="image/jpg,image/png,image/jpeg,image/gif" multiple required>
+                            <input type="file" name="files[]" id="postFiles" accept="image/jpg,image/png,image/jpeg,image/gif, image/webp" multiple required>
                             <label class="fileLabel" for="postFiles">Examinar</label>
                             <small class="fileText">Sin archivos seleccionados</small>
                         </div>

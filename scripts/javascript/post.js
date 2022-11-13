@@ -25,12 +25,7 @@ function createGallery(){
     gallery.className="galleryViewer";
     gallery.innerHTML=`
         <img src="" alt="Vista" class="galleryViewer__view">
-    `
-    if(galleryItems.length>1){
-        gallery.innerHTML+=`
-        <div class="galleryViewer__left"><img src="http://localhost/Homder/img/icons/angle-left-solid.svg" alt="Imagen anterior"></div>
-        <div class="galleryViewer__right"><img src="http://localhost/Homder/img/icons/angle-right-solid.svg" alt="Imagen siguiente"></div>`;
-    }
+    `;
     return gallery;
 }
 
@@ -40,8 +35,20 @@ function openGallery(){
     }
     updateGalleryView(galleryItems[currentImage]);
     if(galleryItems.length>1){
-        gallery.querySelector(".galleryViewer__left").addEventListener("click", previousGalleryView);
-        gallery.querySelector(".galleryViewer__right").addEventListener("click", nextGalleryView);
+        let left= gallery.querySelectorAll(".galleryViewer__left")[0];
+        let right = gallery.querySelectorAll(".galleryViewer__right")[0];
+
+        if(!left){
+            gallery.innerHTML+=`<div class="galleryViewer__left"><img src="http://localhost/Homder/img/icons/angle-left-solid.svg" alt="Imagen anterior"></div>`;
+            left= gallery.querySelectorAll(".galleryViewer__left")[0];
+        }
+        if(!right){
+            gallery.innerHTML+=`<div class="galleryViewer__right"><img src="http://localhost/Homder/img/icons/angle-right-solid.svg" alt="Imagen siguiente"></div>`;
+            right = gallery.querySelectorAll(".galleryViewer__right")[0];
+        }
+
+        left.addEventListener("click", previousGalleryView);
+        right.addEventListener("click", nextGalleryView);
     }
     gallery.showModal();
     gallery.scrollIntoView({behavior:"smooth", block:"center", inline:"center"});

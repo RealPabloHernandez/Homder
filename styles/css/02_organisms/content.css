@@ -2,6 +2,7 @@
     min-width: 350px;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
     flex-direction: column;
     gap: .5rem;
@@ -9,6 +10,7 @@
 
 @media screen and (min-width:380px) {
     .content{
+        min-width: 70%;
         max-width: 70%;
     }
 }

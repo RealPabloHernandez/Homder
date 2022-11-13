@@ -39,3 +39,7 @@
 .area-outside::before{
     content: url("http://localhost/homder/img/icons/maximize-solid.svg");
 }
+
+.phone::before{
+    content: url("http://localhost/homder/img/icons/phone-solid.svg");
+}
