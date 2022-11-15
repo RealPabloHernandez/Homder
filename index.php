@@ -41,16 +41,15 @@
                 <?php
                 if(isset($_GET['search'])){
                     $search=$_GET['search'];
-                    $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE p.description LIKE '%$search%' OR p.title LIKE '%$search%' OR p.location LIKE '%$search%' OR u.name LIKE '%$search%'  ORDER BY pid DESC");
+                    $posts=$connect->query("SELECT *, p.id as pid, p.description FROM posts as p INNER JOIN users as u WHERE p.userID=u.id AND p.description LIKE '%$search%' OR p.title LIKE '%$search%' OR p.location LIKE '%$search%' OR u.name LIKE '%$search%'  ORDER BY pid DESC");
                 }
                 else{
-                    $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u ORDER BY pid DESC");
+                    $posts=$connect->query("SELECT *, p.id as pid , p.description FROM posts as p INNER JOIN users as u WHERE p.userID=u.id ORDER BY pid DESC");
                 }
                 if($posts->num_rows>0){
                     while($post=$posts->fetch_assoc()){
                         $thisProfilePicture=$post['profile-pic'];
                         $thisProfilePictureFolder="uploads/";
-
                         if($thisProfilePicture=='default-user.svg'){
                             $thisProfilePictureFolder="img/";
                         }

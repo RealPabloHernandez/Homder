@@ -71,7 +71,7 @@ if($thisProfilePicture=='default-user.svg'){
                             ?>
                         </div>
                         <?php
-                            $ratingQuery=$connect->query("SELECT `rating` FROM ratings WHERE user_id=$userID");
+                            $ratingQuery=$connect->query("SELECT `rating` FROM ratings WHERE user_id='$userID'");
                             if($ratingQuery->num_rows>0){
                                 $rating=$ratingQuery->fetch_assoc();
                             }
@@ -103,7 +103,7 @@ if($thisProfilePicture=='default-user.svg'){
                 </div>
             </section>
             <?php
-                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE u.id=$userID ORDER BY Pid DESC");
+                $posts=$connect->query("SELECT *, p.id as pid, u.id as uid, p.description FROM posts as p INNER JOIN users as u WHERE userID='$userID' and p.userID=u.id ORDER BY pid DESC");
             ?>
             <div class="controls">
                 <span><small>Publicaciones: <?php echo $posts->num_rows?></small></span>
@@ -119,7 +119,7 @@ if($thisProfilePicture=='default-user.svg'){
                         ?>
                         <div onclick="window.location='http://localhost/homder/post.php?id=<?php echo $post['pid']?>';" class="card">
                             <?php
-                                if(isset($_SESSION['id']) && $_SESSION['id']==$post['uid']){
+                                if(isset($_SESSION['id']) && $_SESSION['id']==$post['userID']){
                                 ?>
                                     <div class="card__options card__options--center">
                                         <a href="<?php echo "http://localhost/homder/property.php?edit=0&id=".$post['pid']?>"><img alt="Editar" class="card__edit"></a>
