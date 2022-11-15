@@ -3,6 +3,7 @@
 
 <?php
     include 'scripts/php/partials/header-config_1.php';
+    include 'scripts/php/favourite.php';
     $message="";
     if(isset($_GET['message'])){
         $message=$_GET['message'];
@@ -54,10 +55,10 @@
                             $thisProfilePictureFolder="img/";
                         }
                         ?>
-                        <div onclick="window.location='http://localhost/homder/post.php?id=<?php echo $post['pid']?>';" class="card">
+                        <div class="card" id="<?php echo $post['id']?>" onclick="window.location='http://localhost/homder/post.php?id=<?php echo $post['pid']?>';" >
                             <div class="card__options">
                                 <a><img alt="User" class="card__user" src="<?php echo "http://localhost/homder/".$thisProfilePictureFolder.$thisProfilePicture?>"></a>
-                                <a><img alt="Guardar" class="card__save card__saved"></a>
+                                <a><img alt="Guardar" class="card__save"></a>
                             </div>
                             <div class="card__info">
                                 <div class="card__content">
@@ -120,5 +121,6 @@
     <?php
         include 'scripts/php/partials/header-config_2.php';
     ?>
+
 </body>
 </html>
