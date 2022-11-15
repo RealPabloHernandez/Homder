@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2022 a las 23:33:54
+-- Tiempo de generación: 15-11-2022 a las 02:01:53
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `favorites`
+-- Estructura de tabla para la tabla `favourites`
 --
 
-CREATE TABLE `favorites` (
+CREATE TABLE `favourites` (
   `user_id` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -136,9 +136,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `description`, `phone`, 
 --
 
 --
--- Indices de la tabla `favorites`
+-- Indices de la tabla `favourites`
 --
-ALTER TABLE `favorites`
+ALTER TABLE `favourites`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `post_id` (`post_id`);
 
@@ -196,11 +196,11 @@ ALTER TABLE `users`
 --
 
 --
--- Filtros para la tabla `favorites`
+-- Filtros para la tabla `favourites`
 --
-ALTER TABLE `favorites`
-  ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+ALTER TABLE `favourites`
+  ADD CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
 
 --
 -- Filtros para la tabla `posts`
